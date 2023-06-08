@@ -21,12 +21,41 @@ class _AddtaskState extends State<Addtask> {
     List<String> list = <String>['High', 'Med', 'Low'];
     String selected;
     String dropdownValue = list.first;
-
+    TextEditingController _namecontroller = new TextEditingController();
     TextEditingController _desccontroller = new TextEditingController();
     TextEditingController _priorcontroller = new TextEditingController();
     final taskcontrollerp = Get.find<Taskcontroller>();
     return Scaffold(
         body: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 10.0, top: 5),
+            child: Text(
+              "Task name",
+              style: GoogleFonts.nunito(
+                  fontSize: 15,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w600),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 10.0, top: 10, right: 10),
+            child: TextFormField(
+              style: TextStyle(color: Colors.white),
+              controller: _namecontroller,
+              decoration: InputDecoration(
+                 hintText: "Add name",
+                  hintStyle: GoogleFonts.nunito(color: Colors.white),
+                  focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20),
+                      borderSide: BorderSide(
+                        width: 3,
+                        color: Colors.white,
+                      )),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
+                      borderSide: BorderSide(width: 3, color: Colors.pink))),
+            ),
+          ),
           Padding(
             padding: const EdgeInsets.only(left: 10.0, top: 5),
             child: Text(
@@ -43,6 +72,8 @@ class _AddtaskState extends State<Addtask> {
               style: TextStyle(color: Colors.white),
               controller: _desccontroller,
               decoration: InputDecoration(
+                 hintText: "Add description",
+                  hintStyle: GoogleFonts.nunito(color: Colors.white),
                   focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(20),
                       borderSide: BorderSide(
@@ -96,6 +127,7 @@ class _AddtaskState extends State<Addtask> {
               child: MaterialButton(
                 onPressed: () {
                   taskcontrollerp.addTask(Task(
+                    name: _namecontroller.text,
                       priority: dropdownValue,
                       description: _desccontroller.text));
                   Navigator.pop(context);

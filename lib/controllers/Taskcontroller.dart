@@ -18,4 +18,12 @@ class Taskcontroller extends GetxController{
     tasks[index].isCompleted=!tasks[index].isCompleted;
     update();
   }
+  updatetask(String id,String newdesc,String newname){
+    Task task=_tasks.firstWhere((element) => element.id==id);
+    task.name=newname;
+    task.description=newdesc;
+    update();
+
+  }
+  
 }

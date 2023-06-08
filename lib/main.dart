@@ -5,6 +5,7 @@ import 'package:get/instance_manager.dart';
 import 'package:tasks_app/Tasklist.dart';
 import 'package:tasks_app/controllers/Taskcontroller.dart';
 import 'package:tasks_app/views/Addtask.dart';
+import 'package:tasks_app/views/firstscreen.dart';
 
 
 void main() {
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         primarySwatch: Colors.blue,
       ),
-      home:Homepage(),
+      home:Firstscreeen(),
     );
   }
 }
