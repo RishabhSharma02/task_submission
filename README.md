@@ -1,6 +1,6 @@
-# tasks_app
+# Taks app
 
-A new Flutter project.
+A beautiful simple tasks app using GetX and Flutter.
 
 ## Getting Started
 
